@@ -1,7 +1,12 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import { mkdirSync, writeFileSync } from "node:fs";
 
-const entry = `defenestration`;
-const outDir = '/output';
-fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(path.join(outDir, 'entry.txt'), entry);
+// One word, first thought: a word with a twist in it.
+// It has to be exactly one word, nothing else, no punctuation.
+const entry = "labyrinth";
+
+// The gate wants a single word, so guard against accidental whitespace.
+const clean = entry.trim().split(/\s+/)[0];
+
+mkdirSync("/output", { recursive: true });
+writeFileSync("/output/entry.txt", clean);
+console.log("entry written:", clean);
