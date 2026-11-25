@@ -1,12 +1,7 @@
+// One Word, First Thought: a single surprising word, written to /output/entry.txt.
 import { mkdirSync, writeFileSync } from "node:fs";
 
-// One word, first thought: a word with a twist in it.
-// It has to be exactly one word, nothing else, no punctuation.
-const entry = "labyrinth";
-
-// The gate wants a single word, so guard against accidental whitespace.
-const clean = entry.trim().split(/\s+/)[0];
-
+// The entry word, picked fresh for this bounty.
+const entry = "petrichor";
 mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", clean);
-console.log("entry written:", clean);
+writeFileSync("/output/entry.txt", entry);
